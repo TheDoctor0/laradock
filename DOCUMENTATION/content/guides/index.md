@@ -165,14 +165,14 @@ Remove 0.0.0.0:80
 
 ```
 0.0.0.0:80
-root /var/www/public
+root /var/www/html/public
 ```
 
 and replace with your https://yourdomain.com
 
 ```
 https://yourdomain.com
-root /var/www/public
+root /var/www/html/public
 ```
 
 uncomment tls
@@ -275,7 +275,7 @@ docker-compose build workspace
 
 #### Application Setup
 
-Run a `workspace` container and you will be inside the container at `/var/www` directory.
+Run a `workspace` container and you will be inside the container at `/var/www/html` directory.
 
 ```
 docker-compose run workspace bash
@@ -288,14 +288,14 @@ Create new Laravel application named `dusk-test` and install Laravel Dusk packag
 ```
 /var/www> laravel new dusk-test
 /var/www> cd dusk-test
-/var/www/dusk-test> composer require --dev laravel/dusk
-/var/www/dusk-test> php artisan dusk:install
+/var/www/html/dusk-test> composer require --dev laravel/dusk
+/var/www/html/dusk-test> php artisan dusk:install
 ```
 
 Create `.env.dusk.local` by copying from `.env` file.
 
 ```
-/var/www/dusk-test> cp .env .env.dusk.local
+/var/www/html/dusk-test> cp .env .env.dusk.local
 ```
 
 Update the `APP_URL` entry in `.env.dusk.local` to local Laravel server.
@@ -306,7 +306,7 @@ APP_URL=http://localhost:8000
 
 You will need to run chromedriver with `headless` and `no-sandbox` flag. In Laravel Dusk 2.x it is
 already set `headless` so you just need to add `no-sandbox` flag. If you on previous version 1.x,
-you will need to update your `DustTestCase#driver` as shown below. 
+you will need to update your `DustTestCase#driver` as shown below.
 
 
 ```
@@ -398,9 +398,9 @@ Run local server in `workspace` container and run Dusk tests.
 
 ```
 # alias to run Laravel server in the background (php artisan serve --quiet &)
-/var/www/dusk-test> serve
+/var/www/html/dusk-test> serve
 # alias to run Dusk tests (php artisan dusk)
-/var/www/dusk-test> dusk
+/var/www/html/dusk-test> dusk
 
 PHPUnit 6.4.0 by Sebastian Bergmann and contributors.
 

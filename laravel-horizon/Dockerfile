@@ -95,7 +95,7 @@ RUN if [ ${INSTALL_MEMCACHED} = true ]; then \
   ;fi
 
 RUN rm /var/cache/apk/* \
-  && mkdir -p /var/www
+  && mkdir -p /var/www/html
 
 #
 #--------------------------------------------------------------------------

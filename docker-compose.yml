@@ -755,7 +755,7 @@ services:
         context: ./certbot
       volumes:
         - ./data/certbot/certs/:/var/certs
-        - ./certbot/letsencrypt/:/var/www/letsencrypt
+        - ./certbot/letsencrypt/:/var/www/html/letsencrypt
       environment:
         - CN="fake.domain.com"
         - EMAIL="fake.email@gmail.com"

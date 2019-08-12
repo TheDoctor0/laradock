@@ -165,7 +165,7 @@ Homestead 是一个工具,为你控制虚拟机(使用 Homestead 特殊命令)�
 <a name="Requirements"></a>
 ## 依赖
 
-- [Git](https://git-scm.com/downloads)       
+- [Git](https://git-scm.com/downloads)
 - [Docker](https://www.docker.com/products/docker/)
 
 <a name="Installation"></a>
@@ -382,13 +382,13 @@ composer create-project laravel/laravel my-cool-app "5.2.*"
 3 - 编辑 `docker-compose.yml` 映射新的应用目录:
 系统默认 Laradock 假定 Laravel 应用在 laradock 的父级目录中
 
-更新 Laravel 应用在 `my-cool-app` 目录中, 我们需要用 `../my-cool-app/:/var/www`替换 `../:/var/www` , 如下:
+更新 Laravel 应用在 `my-cool-app` 目录中, 我们需要用 `../my-cool-app/:/var/www/html`替换 `../:/var/www/html` , 如下:
 
 ```yaml
     application:
         build: ./application
         volumes:
-            - ../my-cool-app/:/var/www
+            - ../my-cool-app/:/var/www/html
 ```
 
 4 - 进入目录下继续工作..

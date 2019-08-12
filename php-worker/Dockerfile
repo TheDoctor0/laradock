@@ -132,7 +132,7 @@ RUN if [ ${INSTALL_GMP} = true ]; then \
 
 
 RUN rm /var/cache/apk/* \
-    && mkdir -p /var/www
+    && mkdir -p /var/www/html
 
 
 ###########################################################################

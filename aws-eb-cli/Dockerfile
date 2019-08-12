@@ -12,6 +12,6 @@ COPY /ssh_keys/. /root/.ssh/
 RUN cd /root/.ssh && chmod 600 * && chmod 644 *.pub
 
 # Set default work directory
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 
