@@ -200,6 +200,25 @@ RUN if [ ${INSTALL_DRUSH} = true ]; then \
     drush core-status \
 ;fi
 
+#####################################
+# wkhtmltopdf:
+#####################################
+
+USER root
+
+ARG INSTALL_WKHTMLTOPDF=true
+
+RUN if [ ${INSTALL_WKHTMLTOPDF} = true ]; then \
+    # Install all dependencies
+    apt-get update && apt-get install -y libxrender1 libfontconfig1 libx11-dev libjpeg62 libxtst6 wget xvfb \
+    && mkdir wkhtmltopdf_download \
+    && cd wkhtmltopdf_download \
+    && wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb \
+    && apt install ./wkhtmltox_0.12.5-1.bionic_amd64.deb -y \
+    && cd .. \
+    && rm -rf wkhtmltopdf_download \
+;fi
+
 ###########################################################################
 # WP CLI:
 ###########################################################################

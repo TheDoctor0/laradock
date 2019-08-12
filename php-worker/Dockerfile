@@ -54,6 +54,16 @@ RUN if [ ${INSTALL_PGSQL} = true ]; then \
         && docker-php-ext-install pdo_pgsql \
 ;fi
 
+# Install PHP Redis:
+ARG INSTALL_PHPREDIS=false
+
+RUN if [ ${INSTALL_PHPREDIS} = true ]; then \
+    # Install Php Redis extension
+    pecl install -o -f redis \
+    && rm -rf /tmp/pear \
+    && docker-php-ext-enable redis \
+;fi
+
 # Install ZipArchive:
 ARG INSTALL_ZIP_ARCHIVE=false
 RUN if [ ${INSTALL_ZIP_ARCHIVE} = true ]; then \
