@@ -485,7 +485,7 @@ For more about the Laravel installation click [here](https://laravel.com/docs/ma
 
 By default, Laradock assumes the Laravel application is living in the parent directory of the laradock folder.
 
-Since the new Laravel application is in the `my-cool-app` folder, we need to replace `../:/var/www` with `../my-cool-app/:/var/www`, as follow:
+Since the new Laravel application is in the `my-cool-app` folder, we need to replace `../:/var/www/html` with `../my-cool-app/:/var/www/html`, as follow:
 
 ```dotenv
   APP_CODE_PATH_HOST=../my-cool-app/
@@ -576,7 +576,7 @@ Laradock provides 2 ways to run Laravel Scheduler
 a) Comment out cron setting in workspace container, file `workspace/crontab/laradock`
 
 ```bash
-# * * * * * laradock /usr/bin/php /var/www/artisan schedule:run >> /dev/null 2>&1
+# * * * * * laradock /usr/bin/php /var/www/html/artisan schedule:run >> /dev/null 2>&1
 ```
 <br>
 b) Create supervisor configuration file (for ex., named `laravel-scheduler.conf`) for Laravel Scheduler in `php-worker/supervisord.d/` by simply copy from `laravel-scheduler.conf.example`
@@ -1499,7 +1499,7 @@ To add locales to the container:
 You can add your cron jobs to `workspace/crontab/root` after the `php artisan` line.
 
 ```
-* * * * * laradock /usr/bin/php /var/www/artisan schedule:run >> /dev/null 2>&1
+* * * * * laradock /usr/bin/php /var/www/html/artisan schedule:run >> /dev/null 2>&1
 
 # Custom cron
 * * * * * root echo "Every Minute" > /var/log/cron.log 2>&1

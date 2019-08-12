@@ -1,6 +1,6 @@
 # Docs: https://caddyserver.com/docs/caddyfile
 0.0.0.0:80 {
-    root /var/www/public
+    root /var/www/html/public
     fastcgi / php-fpm:9000 php {
         index index.php
     }
@@ -27,7 +27,7 @@
 }
 
 laradock1.demo:80 {
-    root /var/www/public
+    root /var/www/html/public
     # Create a Webhook in git.
     #git {
 	#repo https://github.com/xxx/xxx
@@ -47,5 +47,5 @@ laradock2.demo:80 {
 
 laradock3.demo:80 {
     import authlist.conf
-    root /var/www/public
+    root /var/www/html/public
 }

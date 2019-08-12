@@ -8,7 +8,7 @@
 APP_CODE_PATH_HOST=../
 
 # Point to where the `APP_CODE_PATH_HOST` should be in the container
-APP_CODE_PATH_CONTAINER=/var/www
+APP_CODE_PATH_CONTAINER=/var/www/html
 
 # You may add flags to the path `:cached`, `:delegated`. When using Docker Sync add `:nocopy`
 APP_CODE_CONTAINER_FLAG=:cached
@@ -235,7 +235,7 @@ APACHE_SITES_PATH=./apache2/sites
 APACHE_PHP_UPSTREAM_CONTAINER=php-fpm
 APACHE_PHP_UPSTREAM_PORT=9000
 APACHE_PHP_UPSTREAM_TIMEOUT=60
-APACHE_DOCUMENT_ROOT=/var/www/
+APACHE_DOCUMENT_ROOT=/var/www/html/
 
 ### MYSQL #################################################
 
